@@ -1,3 +1,9 @@
+Name of feature: Building CRUD apps with MongoDB
+Start time: 2:00 pm
+Finish time:
+Actual time needed to complete: 
+
+
 # Start your own "Can of Books" App
 
 This repository has starter code to begin work on creating your own online bookshelf.
