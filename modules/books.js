@@ -4,14 +4,14 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const bookSchema = new Schema({
-  Books:Array,
+  Books: Array,
 })
 
 const booksModel = mongoose.model('books', bookSchema);
 
 let seedFunction = () => {
 
-  let newbooks = booksModel({
+  let newbooks = new booksModel({
     Books:[{
       title: "Unconditional Preaching of the Elves (Elven religion and pantheon)",
       description: "This book is a written body of teachings of a specific religious organization. This book is leafed through, but otherwise good condition. It is written in Common Speech. It is part of a series of 10 volumes.",
@@ -31,7 +31,7 @@ let seedFunction = () => {
       title: "Library Book of Libraries: A photo book showing a series of decrepit bookshelves, along with locations.",
       description: "This book is a little more eye-catching than most other mundane books. This book is leafed through, but otherwise good condition. It is written in Common Speech. It is a very thin book.",
       status: "notavailable",
-      email: 'vitortedario@gmail.com',
+      email: 'jacob.gregor@outlook.com',
       id:3
       
     },]
@@ -40,4 +40,4 @@ let seedFunction = () => {
   console.log(newbooks)
 }
 seedFunction();
-
+module.exports = booksModel
