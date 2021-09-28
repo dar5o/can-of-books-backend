@@ -1,21 +1,16 @@
 'use strict';
 
-const {request, response} = require('express');
-const {model} = require('mongoose');
-const {userModel, seedFunction} = require('../modules/userModel');
 
-console.log(userModel)
+const { query } = require('express');
+const {booksModel} = require('../modules/books');
 
-let getBooks = (request, response) => {
-  
-  userModel.find({}).then((error, data) => {
-    if (error) {
-      response.send(error)
-    } else {
-      response.json(data);
+async function getBooks (request, response) {
+    const email = {};
+    if (request.query.email) {
+      query.email = request.query.email;
     }
-    
-  })
+    const sendBooks = await booksModel.find(email);
+    response.send(sendBooks);
 }
 
 module.exports = getBooks;
