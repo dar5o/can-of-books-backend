@@ -5,23 +5,18 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const getBooks = require('./controller/bookController');
-const {seedFunction} = require('./modules/books');
-
 const app = express();
-
-app.use(cors());
-
 const PORT = process.env.PORT;
 const MONGO_SERVER = process.env.DATABASE_MONGO_SERVER;
 
-mongoose.connect(MONGO_SERVER, {useNewUrlParser: true, useUnifiedTopology: true});
+app.use(cors());
+
+mongoose.connect(MONGO_SERVER);
 
 
 
 app.get('/', (request, response) => {
-  
-  response.send('working')
-
+response.send('working')
 })
 
 app.get('/books', getBooks);
