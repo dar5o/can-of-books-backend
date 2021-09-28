@@ -1,7 +1,7 @@
 Name of feature: Building CRUD apps with MongoDB
 Start time: 2:00 pm
-Finish time:
-Actual time needed to complete: 
+Finish time: 9:30
+Actual time needed to complete: 7 hours
 
 
 # Start your own "Can of Books" App
