@@ -4,12 +4,20 @@
 const Books = require('../modules/books');
 
 async function getBooks (request, response) {
-    const email = {};
+  try {
     if (request.query.email) {
-      email.email = request.query.email;
+      let email = request.query.email;
+      console.log(request.query);
+      const sendBooks = await Books.find({email});
+      response.send(sendBooks);
+    } else {
+      let allBook = await Books.find({})
+      response.send(allBook);
     }
-    const sendBooks = await Books.find(email);
-    response.send(sendBooks);
+  } catch (error) {
+    console.log(error)
+  }
+  
 }
 
 module.exports = getBooks;

@@ -1,17 +1,18 @@
 //missing imports
+'use strict';
 
+const Books = require('./books');
 
 const updateBooks = async (request, response) => {
-  const { title, status, description } = request.body;
+  let id = request.params.id;
   try {
-    const updatedBook = await Books.findByIdAndUpdate(request.params.id, {
-      title,
-      status,
-      description,
-    });
-    const { email } = updatedBook;
-    getBooks({ query: { email } }, response);
+    const updatedBook = await Books.findByIdAndUpdate(id, {...request.body}, {new: true});
+    response.status(201).send(updatedBook);
   } catch (err) {
-    response.status(400).json(err);
+    console.log(err);
+    response.status(400).send('failed to update');
+
   }
 };
+
+module.exports=updateBooks;
