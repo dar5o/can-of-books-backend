@@ -8,7 +8,7 @@ const bookSchema = new Schema({
   description: String,
   status: String,
   email: String,
-})
+});
 
 const Books = mongoose.model('books', bookSchema);
 
